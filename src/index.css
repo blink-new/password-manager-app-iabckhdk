@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 222 84% 5%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 84% 5%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 84% 5%;
+    --primary: 239 68% 68%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 84% 5%;
+    --muted: 210 40% 98%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 160 84% 39%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 239 68% 68%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222 84% 5%;
+    --foreground: 210 40% 98%;
+    --card: 222 84% 11%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 84% 11%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 239 68% 68%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 160 84% 39%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 239 68% 68%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+
+    font-family: Inter, sans-serif;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 30%);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 50%);
+}
+
+/* Password strength indicator */
+.strength-very-weak { 
+  @apply bg-red-500; 
+}
+
+.strength-weak { 
+  @apply bg-orange-500; 
+}
+
+.strength-fair { 
+  @apply bg-yellow-500; 
+}
+
+.strength-good { 
+  @apply bg-blue-500; 
+}
+
+.strength-strong { 
+  @apply bg-green-500; 
+}
+
+/* Animations */
+@keyframes fade-in {
+  from { 
+    opacity: 0%; 
+    transform: translateY(10px); 
+  }
+
+  to { 
+    opacity: 100%; 
+    transform: translateY(0); 
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
+}
+
+/* Secure input styling */
+.secure-input {
+  @apply font-mono tracking-wider;
+}
+
+/* Copy success animation */
+@keyframes copy-success {
+  0% { 
+    transform: scale(1); 
+  }
+
+  50% { 
+    transform: scale(1.1); 
+  }
+
+  100% { 
+    transform: scale(1); 
+  }
+}
+
+.copy-success {
+  animation: copy-success 0.2s ease-out;
+}
